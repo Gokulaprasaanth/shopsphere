@@ -29,12 +29,6 @@ You can start the application using the Maven wrapper:
 ./mvnw spring-boot:run
 ```
 
-## Default Admin Credentials
-When the application runs for the first time, an `AdminInitializer` creates a default admin account. **WARNING: This account is for local development only and MUST NOT be used as-is in production.**
-
-- **Email**: admin@ecommerce.com
-- **Password**: Admin@123
-
 ## REST Endpoints Summary
 
 ### Authentication
