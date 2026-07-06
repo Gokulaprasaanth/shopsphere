@@ -1,0 +1,374 @@
+.header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.topBanner {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainNav {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logoIcon {
+  color: var(--primary);
+}
+
+.searchForm {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 2rem;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-main);
+  border-radius: 9999px;
+  padding: 0.25rem;
+  border: 1px solid var(--border-light);
+}
+
+.searchIcon {
+  color: var(--text-muted);
+  margin-left: 1rem;
+}
+
+.searchWrapper input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  color: var(--text-main);
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.clearBtn:hover {
+  color: var(--danger);
+}
+
+.searchBtn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.searchBtn:hover {
+  background-color: var(--primary-hover);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.actionItem:hover {
+  color: var(--primary);
+}
+
+.actionText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.smallText {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.actionText strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cartIconWrapper {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--danger);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.userMenu {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 0.5rem 0;
+  min-width: 150px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.userMenu:hover .dropdown,
+.showDropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.875rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: var(--bg-main);
+  color: var(--primary);
+}
+
+.secondaryNav {
+  background-color: var(--bg-card);
+  padding: 0;
+}
+
+.secondaryNav .container {
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.categoriesBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-main);
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-right: 1px solid var(--border-light);
+  border-left: 1px solid var(--border-light);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinks a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 1rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.navLinks a:hover {
+  color: var(--primary);
+}
+
+.navLinks .activeLink {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.mobileSearchBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.themeToggleBtn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s;
+}
+
+.themeToggleBtn:hover {
+  background-color: var(--bg-main);
+  color: var(--primary);
+}
+
+.mobileSearchContainer {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .searchForm {
+    display: none;
+  }
+  .secondaryNav {
+    display: none;
+  }
+  
+  .mobileSearchBtn {
+    display: flex;
+  }
+
+  .mobileSearchContainer {
+    display: block;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
+    animation: slideDown 0.2s ease-out forwards;
+  }
+
+  .mobileSearchForm {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-main);
+    border-radius: 9999px;
+    padding: 0.25rem;
+    border: 1px solid var(--border-light);
+  }
+
+  .mobileSearchForm input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    color: var(--text-main);
+    font-size: 0.875rem;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (max-width: 768px) {
+  .mainNav {
+    padding: 1rem 0; /* Reduce vertical padding on mobile */
+  }
+
+  .container {
+    padding: 0 1rem;
+    align-items: center; /* Ensure strict vertical center */
+  }
+  
+  .logoIcon {
+    width: 24px;
+    height: 24px;
+    display: block; 
+  }
+
+  .logo span {
+    display: none; 
+  }
+
+  .actionText {
+    display: none; 
+  }
+
+  .actions {
+    gap: 1.25rem;
+    align-items: center;
+    height: 24px; /* Force height to match logo for perfect vertical alignment */
+  }
+  
+  .actionItem {
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 24px;
+  }
+
+  .cartIconWrapper {
+    display: flex;
+    align-items: center;
+  }
+}
