@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../../context/CartContext';
 import { OrderService } from '../../../services/order.service';
@@ -18,9 +18,19 @@ export const Checkout = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
+  // Redirect to the cart if it is empty — but not while we are finalizing an
+  // order (placing an order clears the cart, and we want to land on the
+  // success page instead of bouncing back to the cart). Runs as an effect so
+  // we never call navigate() during render.
+  useEffect(() => {
+    if (!orderPlaced && !cart?.items?.length) {
+      navigate('/cart');
+    }
+  }, [cart, orderPlaced, navigate]);
 
   if (!cart?.items?.length) {
-    navigate('/cart');
     return null;
   }
 
@@ -39,8 +49,9 @@ export const Checkout = () => {
     try {
       setLoading(true);
       const order = await OrderService.placeOrder(formData);
+      setOrderPlaced(true); // suppress the empty-cart redirect below
       clearCartState(); // local clear since backend clears the cart on placeOrder
-      navigate('/order-success', { state: { orderId: order.id } });
+      navigate('/order-success', { state: { orderId: order.orderId } });
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to place order');
       setLoading(false);

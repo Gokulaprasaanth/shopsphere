@@ -91,13 +91,19 @@ public class CartServiceTest {
     }
 
     @Test
-    void testGetCart_NotFound() {
+    void testGetCart_NoCart_ReturnsEmptyCart() {
         // Arrange
         when(userService.getCurrentUser()).thenReturn(sampleUser);
         when(cartRepository.findByUser(sampleUser)).thenReturn(Optional.empty());
 
-        // Act & Assert
-        assertThrows(ResourceNotFoundException.class, () -> cartService.getCart());
+        // Act
+        CartResponse response = cartService.getCart();
+
+        // Assert: a user who has not added anything yet gets an empty cart,
+        // not a 404.
+        assertNotNull(response);
+        assertEquals(0, response.getItems().size());
+        assertEquals(0.0, response.getTotalPrice());
     }
 
     @Test

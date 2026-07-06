@@ -13,6 +13,7 @@ import ecom.demo.repository.OrderItemRepository;
 import ecom.demo.repository.OrderRepository;
 import ecom.demo.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ public class OrderService {
     // ==========================
     // Place Order
     // ==========================
+    @Transactional
     public OrderResponse placeOrder(PlaceOrderRequest request) {
 
         User user = userService.getCurrentUser();
@@ -251,6 +253,7 @@ public class OrderService {
     // ==========================
     // Cancel Order
     // ==========================
+    @Transactional
     public OrderResponse cancelOrder(Long id) {
 
         User user = userService.getCurrentUser();

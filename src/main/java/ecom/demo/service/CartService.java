@@ -94,9 +94,13 @@ public class CartService {
 
         User user = userService.getCurrentUser();
 
-        Cart cart = cartRepository.findByUser(user)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Cart not found"));
+        // A cart row is only created on the first add-to-cart. For a user who
+        // has not added anything yet, return an empty cart rather than a 404.
+        Cart cart = cartRepository.findByUser(user).orElse(null);
+
+        if (cart == null) {
+            return new CartResponse(0.0, new ArrayList<>());
+        }
 
         return buildCartResponse(cart);
     }
